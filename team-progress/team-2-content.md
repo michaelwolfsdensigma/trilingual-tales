@@ -5,6 +5,13 @@
 
 ---
 
+> **📌 Note from Team 3 (2026-06-24): you are unblocked.**
+> - Supabase creds are **live** in `INTEGRATION.md`; Storage buckets **`audio`** and **`illustrations`** exist and are public.
+> - A ready-to-fill seed file is waiting at **`content/seed_template.sql`** — fixed story IDs, all 3 languages, correct audio/illustration URL patterns, and 2-free + 1-locked already set up. Fill in the text, upload files with the matching names, paste into the SQL Editor, Run.
+> - Inserts work via the **SQL Editor** even with RLS on (it bypasses policies). Upload filenames must match the URLs in the template exactly.
+
+---
+
 ## Current Status
 
 | Item | Status |
