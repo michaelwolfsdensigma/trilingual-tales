@@ -52,10 +52,10 @@ Example: `progress(team-3): Supabase credentials posted to INTEGRATION.md`
 
 | Team | Status | Current Task | Blocked? |
 |------|--------|-------------|---------|
-| Team 1 — App | `READY FOR INTEGRATION` | Swap mock data for live Supabase queries | Team 3 creds ✅ live on `main` — pull & wire |
-| Team 2 — Content | `NOT STARTED` | Story texts + translations can begin now | Team 3 buckets ✅ live — uploads unblocked |
-| Team 3 — Backend | `DONE` | Backend live: schema, RLS, storage, auth | — |
-| Team 4 — Design | `NOT STARTED` | Color tokens + working name — nothing blocks starting | — |
+| Team 1 — App | `IN PROGRESS` | Apply Team 4 color tokens; real content live in app | — |
+| Team 2 — Content | `DONE` | 3 stories, 22 pages, 69 files in Storage, seed SQL run | — |
+| Team 3 — Backend | `DONE` | Integration support only | — |
+| Team 4 — Design | `DONE` | Design assets/specs posted; integration support only | — |
 
 **Statuses:** `NOT STARTED` · `IN PROGRESS` · `BLOCKED` · `READY FOR INTEGRATION` · `DONE`
 
@@ -63,10 +63,14 @@ Example: `progress(team-3): Supabase credentials posted to INTEGRATION.md`
 
 ## Coordinator Note — *updated by Arden*
 
-**Team 1 has shipped a complete app.** Full Expo scaffold, all screens, audio hooks, bedtime mode, freemium gate, TypeScript clean, verified on web. Running on mock data. Ready to connect to Supabase in ~5 minutes once Team 3 posts credentials.
+**ALL BLOCKERS RESOLVED.** BLK-001, BLK-002, BLK-003 all closed. The app has a live backend, real content, and a name.
 
-**Team 3 is the critical path.** Every other team is blocked on or waiting for their Supabase project. This is the single highest-priority action right now.
+**Team 2: DONE — excellent work.** 3 trilingual folk tales, 22 pages, 44 TTS audio files (EN + FR), 25 illustrations — all in Supabase Storage. Seed SQL run, 3 stories live in the DB. IP log clean (all public domain). ⚠️ One outstanding flag: Story 2 Khmer text is AI-generated and needs native speaker review before KM audio is recorded. Khmer audio across all 3 stories (22 files) is the single remaining content gap — not a demo blocker but noted.
 
-**Team 2** can start writing story texts and translations immediately — uploads wait on Team 3 but content work does not. Team 1 has already roughed in 3 Khmer folk tales in `app/lib/mockData.ts` (Hare & Tortoise, Buffalo & Crow, Moon & Rabbit with Khmer/EN/FR text). Team 2 can build from these or replace them — note the mock IDs (`mock-001` etc.) will become real Supabase UUIDs once the database is live.
+**Team 3: DONE.** Schema, RLS, auth, storage, seed template, integration support — everything delivered. Team 3 also took on coordination cleanup (resolving BLK-003, updating Team 2's progress file). Strong team contribution.
 
-**Team 4** can start immediately — working name, color tokens, covers. Nothing blocks them. Team 1 has placeholder colors in `app/constants/colors.ts` matching the warm/bedtime palette; Team 4 just needs to post final tokens to INTEGRATION.md and Team 1 will update that file.
+**Team 1: real content is in the app.** Supabase hooks are live. Remaining: pull `design/color-tokens.ts` and apply to `app/constants/colors.ts`; post Expo icon dimensions to `team-4-design.md`. Khmer font on a real device is still unverified — worth testing before demo if possible.
+
+**Team 4: DONE.** Name, tokens, bedtime mode spec, story cover template, Expo app icon/splash assets, and demo prototype are posted. Team 1 can pull `app/assets/*`, `design/bedtime-mode-spec.md`, and `design/asset-manifest.md`.
+
+**Demo readiness: ~85%.** The app works end-to-end with real content and Team 4 polish assets/specs are ready. Remaining gap: Khmer audio/native-speaker review and Team 1 final integration pass.
