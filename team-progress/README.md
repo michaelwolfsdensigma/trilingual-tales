@@ -52,10 +52,10 @@ Example: `progress(team-3): Supabase credentials posted to INTEGRATION.md`
 
 | Team | Status | Current Task | Blocked? |
 |------|--------|-------------|---------|
-| Team 1 — App | `IN PROGRESS` | Final branch merge to main — last step | — |
-| Team 2 — Content | `DONE` | — | — |
+| Team 1 — App | `DONE` | Merged to main — full app live | — |
+| Team 2 — Content | `DONE` | Merged to main — seed SQL + 69 assets | — |
 | Team 3 — Backend | `DONE` | Migration 003 confirmed live ✅ | — |
-| Team 4 — Design | `DONE` | — | — |
+| Team 4 — Design | `DONE` | Merged to main — full design system | — |
 
 **Statuses:** `NOT STARTED` · `IN PROGRESS` · `BLOCKED` · `READY FOR INTEGRATION` · `DONE`
 
@@ -63,16 +63,22 @@ Example: `progress(team-3): Supabase credentials posted to INTEGRATION.md`
 
 ## Coordinator Note — *updated by Arden*
 
-**Demo readiness: ~95%.** One step remaining — Team 1 merges their branch to main.
+**🟢 DEMO READY — all branches merged to main.**
+
+All 4 team branches are fully merged. Zero commits ahead of main across any branch.
 
 ---
 
-**Migration 003 ✅ LIVE** — confirmed by Team 3 at 14:40. All 3 stories now appear for anon users. The Golden Snail shows with a lock badge; its pages remain gated behind `is_premium`. Freemium demo flow is working correctly.
+**What's live on main:**
 
-**Team 1 — one step from done.** Nitean palette applied, Team 4 icons/splash integrated, `app.json` renamed, bedtime image opacity set. Three commits on `team/1-app` not yet on main — merge to main is the final act.
+- **App (Team 1):** Full Expo/React Native app — Nitean branding, Expo Router, story list + reader, audio playback (Expo AV), language picker (KM/EN/FR), bedtime mode, freemium gate UI, Supabase hooks wired and live
+- **Content (Team 2):** 3 trilingual folk tales, 22 pages, 44 TTS audio files (EN + FR), 25 illustrations — all in Supabase Storage. Seed SQL run. Freemium: Stories 1+2 free, Story 3 (The Golden Snail) locked
+- **Backend (Team 3):** Schema, RLS, auth, migration 003 live — locked stories appear with badge, pages gated. Freemium toggle: `is_premium` on `profiles` table in Supabase Studio
+- **Design (Team 4):** Nitean palette, bedtime mode spec, icon/splash (all Expo sizes), HTML prototype at `design/prototype/index.html`, cover template, asset manifest
 
-**Team 2 — DONE.** 3 folk tales, 22 pages, 44 audio files (EN + FR), 25 illustrations. Post-demo backlog: KM audio (native speaker session), Story 2 Khmer text review, per-page unique illustrations.
+**To run the demo:**
+1. `cd app && cp .env.example .env` — fill in `EXPO_PUBLIC_SUPABASE_URL` + `EXPO_PUBLIC_SUPABASE_ANON_KEY` from `team-progress/INTEGRATION.md`
+2. `npm install && npx expo start`
+3. To demonstrate freemium: flip `is_premium = true` on your test user in Supabase Studio → Table Editor → profiles
 
-**Team 3 — DONE.** Caught and fixed a real freemium UX bug (locked stories invisible) before it hit the demo. Strong coordination throughout.
-
-**Team 4 — DONE.** Complete: tokens, bedtime spec, icon/splash, HTML prototype, cover template, asset manifest. Self-managed BLK-004. Best coordination discipline of the build.
+**Post-demo backlog (not blockers):** KM audio (22 files, native speaker session), Story 2 KM text native review, per-page unique illustrations, real payment flow
