@@ -76,9 +76,24 @@ All 4 team branches are fully merged. Zero commits ahead of main across any bran
 - **Backend (Team 3):** Schema, RLS, auth, migration 003 live — locked stories appear with badge, pages gated. Freemium toggle: `is_premium` on `profiles` table in Supabase Studio
 - **Design (Team 4):** Nitean palette, bedtime mode spec, icon/splash (all Expo sizes), HTML prototype at `design/prototype/index.html`, cover template, asset manifest
 
-**To run the demo:**
-1. `cd app && cp .env.example .env` — fill in `EXPO_PUBLIC_SUPABASE_URL` + `EXPO_PUBLIC_SUPABASE_ANON_KEY` from `team-progress/INTEGRATION.md`
-2. `npm install && npx expo start`
-3. To demonstrate freemium: flip `is_premium = true` on your test user in Supabase Studio → Table Editor → profiles
+**Freemium unlock — now wired end-to-end (commit `a1790a2`).** The gate was previously a
+client-side illusion disconnected from the RLS gate; the app now signs in anonymously,
+reads the real `profiles.is_premium`, and the in-app **"Unlock Premium"** button flips the
+profile row so the server-side `is_premium()` gate releases the premium pages. Reviewed,
+typechecked, merged to main.
 
-**Post-demo backlog (not blockers):** KM audio (22 files, native speaker session), Story 2 KM text native review, per-page unique illustrations, real payment flow
+⚠️ **One open action before the demo (dashboard only, no code/SQL):**
+Supabase → Authentication → enable **Anonymous Sign-ins**. Without it the app never gets
+a session and the unlock button has nothing to flip. (Team 3 documented this; toggle not
+yet confirmed flipped.)
+
+**To run the demo:**
+1. Double-click the **Nitean** desktop icon, **or** `./launch-nitean.sh` (writes `.env` with
+   live Supabase creds on first run, then `npx expo start`).
+2. Tap **The Golden Snail** (locked) → **Unlock Premium** → story opens. That's the freemium moment.
+3. Note: unlock persists per anonymous user. To re-demo the locked state, reset that user's
+   `is_premium` to `false` in Studio, or clear app storage for a fresh anon user.
+
+**Post-demo backlog (not blockers):** enable Anonymous Sign-ins (above), KM audio (22 files,
+native speaker session), Story 2 KM text native review, per-page unique illustrations, real
+payment flow (replace the mock self-update unlock with a webhook-driven `is_premium`).

@@ -115,3 +115,7 @@ All content must fall into one of these lanes:
 - **Outstanding:** Khmer audio (22 files) requires a native speaker recording session. File naming and storage paths are already defined; upload to `audio` bucket when ready.
 
 ---
+
+### 2026-06-24 15:15 (+07) — Coordinator close
+- Branch `team/2-content` merged to main (seed conflict resolved in Team 2's favour — completed seed kept over Team 3's blank scaffold). 3 stories / 22 pages / 69 assets live.
+- Open backlog (post-demo, not blockers): KM audio (22 files, native speaker session), Story 2 KM text native review, per-page unique illustrations.

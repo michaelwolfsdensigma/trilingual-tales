@@ -102,3 +102,6 @@ Reference splash composition: `design/exports/nitean-splash-1242x2436.png`.
 - Updated `INTEGRATION.md`, `README.md`, and `BLOCKERS.md` so other teams know Team 4 deliverables are ready.
 
 **Team 4 status:** all promised Build'o'thon design deliverables are complete. Remaining changes should be integration support only.
+
+### 2026-06-24 15:15 (+07) — Coordinator close
+- Branch `team/4-design` merged to main. Full design system shipped: tokens, bedtime spec, icon/splash (all Expo sizes), HTML prototype, cover template, asset manifest. No open items.

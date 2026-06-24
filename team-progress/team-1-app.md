@@ -9,7 +9,7 @@
 
 | Item | Status |
 |------|--------|
-| Overall | `DONE — integration complete, awaiting Team 2 audio + Team 4 tokens` |
+| Overall | `DONE — merged to main; freemium unlock wired end-to-end` |
 | Expo project scaffold | `DONE` |
 | Khmer font (device test) | `PENDING — need Expo Go on real device` |
 | Language picker | `DONE` |
@@ -19,6 +19,8 @@
 | Bedtime mode | `DONE` |
 | Expo Web pass | `DONE — verified in Safari on localhost:8081` |
 | Supabase integration | `DONE — real data from DB as of 2026-06-24 12:35 (+07)` |
+| Freemium unlock (auth + RLS) | `DONE — anon sign-in + profile flip; needs dashboard toggle (see log)` |
+| Branch merged to main | `DONE — team/1-app fully merged` |
 
 ---
 
@@ -80,5 +82,30 @@ Needs:
 - Team 2: audio files in Storage (`audio` bucket) — `useAudio.ts` will pick them up automatically from `audio_url_km/en/fr` fields once pages are seeded
 - Team 4: color tokens to replace placeholders in `constants/colors.ts`
 - Neither is blocking the demo flow — app works end-to-end with whatever data is in the DB
+
+---
+
+**[15:10 (+07)] — Freemium unlock wired end-to-end (coordinator-applied)**
+
+Code review found the freemium gate was split across two disconnected layers: the
+client tracked `isPremium` in local state that nothing ever set, while RLS gated
+premium pages server-side behind `is_premium()`. The app never authenticated, so
+the premium story's pages were unreachable and the unlock path was dead (the gate
+screen only had a "Go Back" button).
+
+Fix (commit `a1790a2`):
+- `_layout.tsx`: anonymous sign-in on launch (trigger auto-creates the profile),
+  render gated until the session exists so `auth.uid()` is real.
+- `lib/supabase.ts`: AsyncStorage adapter + RN auth config for session persistence.
+- `context/AppContext.tsx`: read real `is_premium` from the profile; `unlock()`
+  flips the profile row (RLS `update own profile` already permits the self-update).
+- `hooks/useStory.ts`: refetch on `isPremium` change so premium pages reload.
+- `stories/[id].tsx`: real "Unlock Premium" button (spinner + clean re-entry).
+
+`tsc --noEmit` passes clean. Branch merged to main.
+
+⚠️ **One dashboard action remains (Team 3):** Supabase → Authentication → enable
+**Anonymous Sign-ins**. Without it `signInAnonymously()` fails and the unlock has no
+session to flip. Documented by Team 3 in `team-3-backend.md` (15:20 entry).
 
 ---
