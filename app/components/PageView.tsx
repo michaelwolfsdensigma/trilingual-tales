@@ -24,7 +24,7 @@ export function PageView({ page, language, bedtimeMode }: Props) {
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <Image
         source={{ uri: page.illustration_url }}
-        style={styles.illustration}
+        style={[styles.illustration, bedtimeMode && { opacity: 0.85 }]}
         resizeMode="cover"
       />
       <View style={[styles.textBox, { backgroundColor: colors.surface }]}>
