@@ -99,3 +99,8 @@
 - **Fix:** `backend/migrations/003_fix_stories_visibility.sql` — all stories now listable (show with lock badge);
   the freemium gate stays on `pages` (content), which is the correct place. Premium page text/audio still hidden until `is_premium`.
 - **Action for whoever owns the DB:** run `003` in the SQL Editor (one statement set). No data change, policy-only.
+
+### 2026-06-24 14:40 (+07) — 003 confirmed live
+- `003_fix_stories_visibility.sql` has been run in the Supabase SQL Editor. Bug closed.
+- All 3 stories now list for anon users; "The Golden Snail" appears with `is_free = false` (lock badge), its pages still gated by `002`'s policy until `profiles.is_premium = true`.
+- INTEGRATION.md fix note updated from "pending" to confirmed live.
