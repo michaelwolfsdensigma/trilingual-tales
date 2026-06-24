@@ -52,3 +52,15 @@ Format:
 - **Raised at:** post-Team-2-content audit
 - **Resolved at:** 2026-06-24 14:08 (+07)
 - **Resolution:** All 69 files uploaded successfully — 44 MP3s to `audio` bucket, 25 PNGs to `illustrations` bucket. Seed SQL run in Supabase SQL Editor — 3 stories and 22 pages now live in the database. Team 1 app has real content to display. KM audio pending native speaker session (not a blocker for demo).
+
+---
+
+## [RESOLVED] BLK-004 — Team 4 demo polish assets not yet posted
+
+- **Raised by:** Team 4
+- **Blocking:** Team 1 — final icon/splash integration and bedtime visual polish
+- **Blocking:** Demo — prototype backup / final visual references
+- **Waiting on:** Team 4 — bedtime spec, app icon, splash, cover template, demo prototype
+- **Raised at:** 2026-06-24 14:19 (+07)
+- **Resolved at:** 2026-06-24 14:19 (+07)
+- **Resolution:** Team 4 posted `design/bedtime-mode-spec.md`, `design/story-cover-template.md`, `design/asset-manifest.md`, `design/prototype/index.html`, Expo assets in `app/assets/`, and PNG references in `design/exports/`. `INTEGRATION.md` now contains the shared asset/spec paths.

@@ -55,7 +55,7 @@ Example: `progress(team-3): Supabase credentials posted to INTEGRATION.md`
 | Team 1 — App | `IN PROGRESS` | Apply Team 4 color tokens; real content live in app | — |
 | Team 2 — Content | `DONE` | 3 stories, 22 pages, 69 files in Storage, seed SQL run | — |
 | Team 3 — Backend | `DONE` | Integration support only | — |
-| Team 4 — Design | `IN PROGRESS` | Bedtime spec + icon/splash + Figma prototype still pending | — |
+| Team 4 — Design | `DONE` | Design assets/specs posted; integration support only | — |
 
 **Statuses:** `NOT STARTED` · `IN PROGRESS` · `BLOCKED` · `READY FOR INTEGRATION` · `DONE`
 
@@ -71,6 +71,6 @@ Example: `progress(team-3): Supabase credentials posted to INTEGRATION.md`
 
 **Team 1: real content is in the app.** Supabase hooks are live. Remaining: pull `design/color-tokens.ts` and apply to `app/constants/colors.ts`; post Expo icon dimensions to `team-4-design.md`. Khmer font on a real device is still unverified — worth testing before demo if possible.
 
-**Team 4: pending items are the demo polish gap.** Name and tokens are solid. Still outstanding and on the critical path: bedtime mode visual spec (Team 1 is waiting), app icon + splash (Team 1 has Expo placeholders), Figma prototype (demo backup). Cover template is now low-priority — Team 2 already generated covers without it.
+**Team 4: DONE.** Name, tokens, bedtime mode spec, story cover template, Expo app icon/splash assets, and demo prototype are posted. Team 1 can pull `app/assets/*`, `design/bedtime-mode-spec.md`, and `design/asset-manifest.md`.
 
-**Demo readiness: ~75%.** The app works end-to-end with real content. What's missing is polish: final colors applied, icon/splash, bedtime mode spec, and Khmer audio.
+**Demo readiness: ~85%.** The app works end-to-end with real content and Team 4 polish assets/specs are ready. Remaining gap: Khmer audio/native-speaker review and Team 1 final integration pass.
