@@ -55,7 +55,7 @@ Example: `progress(team-3): Supabase credentials posted to INTEGRATION.md`
 | Team 1 — App | `READY FOR INTEGRATION` | Swap mock data for live Supabase queries | Team 3 creds ✅ live on `main` — pull & wire |
 | Team 2 — Content | `NOT STARTED` | Story texts + translations can begin now | Team 3 buckets ✅ live — uploads unblocked |
 | Team 3 — Backend | `DONE` | Backend live: schema, RLS, storage, auth | — |
-| Team 4 — Design | `NOT STARTED` | Color tokens + working name — nothing blocks starting | — |
+| Team 4 — Design | `IN PROGRESS` | Cover template dimensions/spec, then bedtime mode visual spec | — |
 
 **Statuses:** `NOT STARTED` · `IN PROGRESS` · `BLOCKED` · `READY FOR INTEGRATION` · `DONE`
 

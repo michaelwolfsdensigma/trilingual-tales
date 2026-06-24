@@ -31,14 +31,14 @@ Format:
 
 ---
 
-## [OPEN] BLK-002 — Team 4 color tokens and working name not yet posted
+## [RESOLVED] BLK-002 — Team 4 color tokens and working name not yet posted
 
 - **Raised by:** Coordinator (Arden)
 - **Blocking:** Team 1 — placeholder colors in use; will update `constants/colors.ts` when final tokens arrive
 - **Blocking:** Team 2 — story cover template dimensions not confirmed
 - **Waiting on:** Team 4 — post final color tokens to INTEGRATION.md; confirm or replace Team 1's placeholders
 - **Raised at:** post-kickoff audit
-- **Resolved at:** —
-- **Resolution:** —
+- **Resolved at:** 2026-06-24 12:55 (+07)
+- **Resolution:** Team 4 posted working name **Nitean**, KM/EN/FR tagline, and final day/bedtime color tokens to `INTEGRATION.md`. Token export added at `design/color-tokens.ts`. Team 1 can now update app color constants. Team 2 is still waiting on cover template dimensions, tracked in Team 4 deliverables rather than this blocker.
 
 > **Team 4:** Nothing blocks you from starting. Working name and color tokens are the two most useful things right now.
