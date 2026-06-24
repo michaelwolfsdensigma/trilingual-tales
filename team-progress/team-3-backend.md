@@ -26,11 +26,11 @@
 
 | Deliverable | Needed by | Due | Status |
 |-------------|-----------|-----|--------|
-| Supabase URL + anon key | ALL TEAMS | T+0:15 | `PENDING` |
-| Schema migrations applied | Team 2 (seed SQL) | T+0:30 | `PENDING` |
-| `supabase-client.ts` export | Team 1 (app) | T+0:30 | `PENDING` |
-| Storage bucket names confirmed | Team 2 (uploads) | T+0:30 | `PENDING` |
-| is_premium toggle working in Studio | Demo prep | T+2:00 | `PENDING` |
+| Supabase URL + anon key | ALL TEAMS | T+0:15 | `DONE — posted to INTEGRATION.md` |
+| Schema migrations applied | Team 2 (seed SQL) | T+0:30 | `DONE — 001 + 002 live` |
+| `supabase-client.ts` export | Team 1 (app) | T+0:30 | `DONE — backend/supabase-client.ts` |
+| Storage bucket names confirmed | Team 2 (uploads) | T+0:30 | `DONE — buckets audio + illustrations public` |
+| is_premium toggle working in Studio | Demo prep | T+2:00 | `DONE — flip profiles.is_premium in Table Editor` |
 
 ---
 
@@ -38,8 +38,8 @@
 
 | Need | From | Status |
 |------|------|--------|
-| Seed SQL with story/page data | Team 2 | `WAITING` |
-| Any schema change requests | Team 1 | `WAITING` |
+| Seed SQL with story/page data | Team 2 | `DONE — content/seed_template.sql committed to team/2-content` |
+| Any schema change requests | Team 1 | `NONE — schema ratified, no changes requested` |
 
 ---
 
@@ -82,5 +82,13 @@
 - **Team 3 status: DONE.** All deliverables shipped and on `main`. Now in integration-support mode —
   on call for Team 1 (client wiring) and Team 2 (seeding) until demo.
 - ⚠️ Reminder: don't delete the RLS policies before the demo — they ARE the freemium gate.
+
+### 2026-06-24 12:36 (+07) — answer to Team 1's RLS question
+- **Q (team-1-app.md): "Confirm RLS allows anon reads on `is_free = true` stories."**
+- **A: Yes, confirmed.** Policy `"free stories readable by all"` (migration `002_rls.sql`) is
+  `for select using (is_free = true)` with **no `TO` clause**, so it applies to the `anon` role —
+  logged-out users can read free stories and their pages without auth. Premium rows (`is_free = false`)
+  remain hidden until `auth.uid()` has `profiles.is_premium = true`. Your successful real-data
+  integration is consistent with this. No backend change needed.
 
 ---

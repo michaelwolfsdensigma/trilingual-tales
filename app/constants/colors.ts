@@ -1,25 +1,34 @@
-// Daytime palette — warm ochres/greens. Team 4 delivers final tokens at T+0:30.
-// Replace values here when Team 4 posts to INTEGRATION.md.
+// Final color tokens from Team 4 (design/color-tokens.ts), applied 2026-06-24
 export const DaytimeColors = {
-  background: '#FDF6E3',
+  background: '#FFF8EA',
   surface: '#FFFFFF',
-  primary: '#C68B2A',
-  text: '#2C1A0E',
-  textMuted: '#7A5C3A',
-  badge_free: '#4A7C4E',
-  badge_locked: '#9E9E9E',
-  border: '#E8D5B0',
+  surfaceAlt: '#F3E7D2',
+  primary: '#B7791F',
+  primaryPressed: '#8F5A13',
+  secondary: '#275C65',
+  accent: '#9E3F2F',
+  text: '#26170F',
+  textMuted: '#6F5944',
+  badge_free: '#3F7D5B',
+  badge_locked: '#8A6F55',
+  border: '#E7D6B8',
 };
 
-// Bedtime palette — deep amber, muted brass, near-black.
+// Bedtime palette — near-black with warm amber accents
 export const BedtimeColors = {
-  background: '#1A0F00',
-  surface: '#2A1A00',
-  overlay: 'rgba(180, 100, 0, 0.35)',
-  primary: '#C68B2A',
-  text: '#F5D49A',
-  textMuted: '#A07840',
-  border: '#3A2800',
+  background: '#100B08',
+  surface: '#1D130D',
+  surfaceAlt: '#2B1D12',
+  overlay: 'rgba(44, 24, 10, 0.72)',
+  scrim: 'rgba(0, 0, 0, 0.45)',
+  primary: '#D6A24E',
+  primaryPressed: '#B7791F',
+  secondary: '#6FA5A0',
+  accent: '#C86E4A',
+  text: '#F6E4C7',
+  textMuted: '#B99565',
+  border: '#49331F',
+  locked: '#8A6F55',
 };
 
 export const Typography = {

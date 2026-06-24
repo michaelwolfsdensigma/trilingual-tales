@@ -31,14 +31,24 @@ Format:
 
 ---
 
-## [OPEN] BLK-002 — Team 4 color tokens and working name not yet posted
+## [RESOLVED] BLK-002 — Team 4 color tokens and working name not yet posted
 
 - **Raised by:** Coordinator (Arden)
 - **Blocking:** Team 1 — placeholder colors in use; will update `constants/colors.ts` when final tokens arrive
 - **Blocking:** Team 2 — story cover template dimensions not confirmed
 - **Waiting on:** Team 4 — post final color tokens to INTEGRATION.md; confirm or replace Team 1's placeholders
 - **Raised at:** post-kickoff audit
-- **Resolved at:** —
-- **Resolution:** —
+- **Resolved at:** 2026-06-24 ~12:55 (+07)
+- **Resolution:** Team 4 posted working name **Nitean** + trilingual tagline to INTEGRATION.md. Final color tokens in `design/color-tokens.ts` — daytime + bedtime palettes, teal secondary, lacquer accent. Team 1 to pull and apply to `app/constants/colors.ts`.
 
-> **Team 4:** Nothing blocks you from starting. Working name and color tokens are the two most useful things right now.
+---
+
+## [RESOLVED] BLK-003 — Audio files and illustrations not yet uploaded to Supabase Storage
+
+- **Raised by:** Coordinator (Arden) / Team 3 (integration support)
+- **Blocking:** Team 2 — cannot run seed SQL until files are in Storage (URLs will 404)
+- **Blocking:** Team 1 — app has no real content to display until seed SQL is run
+- **Waiting on:** Team 2 — upload audio + illustrations to Storage buckets, run seed SQL
+- **Raised at:** post-Team-2-content audit
+- **Resolved at:** 2026-06-24 14:08 (+07)
+- **Resolution:** All 69 files uploaded successfully — 44 MP3s to `audio` bucket, 25 PNGs to `illustrations` bucket. Seed SQL run in Supabase SQL Editor — 3 stories and 22 pages now live in the database. Team 1 app has real content to display. KM audio pending native speaker session (not a blocker for demo).

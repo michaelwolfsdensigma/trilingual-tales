@@ -110,6 +110,8 @@ create table profiles (
 - Toggle via Supabase Studio during demo (no admin UI needed for Build'o'thon)
 - **Enforcement:** RLS policies live (migration `002_rls.sql`). Free rows readable by anyone;
   premium rows require `public.is_premium()`. Flip `profiles.is_premium` in Table Editor to demo unlock.
+- **✅ Confirmed for Team 1 (2026-06-24):** anon (logged-out) reads on `is_free = true` stories AND their
+  pages are allowed — the SELECT policies have no `TO` restriction, so they apply to the `anon` role.
 
 *Ratified by:* Team 3 (RLS applied)  
 *Ratified at:* 2026-06-24 (+07)
@@ -118,37 +120,59 @@ create table profiles (
 
 ## Color Tokens (from Team 4)
 
-**Status:** `PENDING — Team 4 to fill in; Team 1 has live placeholders in app/constants/colors.ts`
+**Status:** `LIVE — final tokens posted by Team 4 (design/color-tokens.ts)`
 
-Team 1 has shipped working placeholder tokens matching the intended palette:
-
-```ts
-// Daytime
-background: '#FDF6E3', surface: '#FFFFFF', primary: '#C68B2A',
-text: '#2C1A0E', textMuted: '#7A5C3A', border: '#E8D5B0'
-
-// Bedtime
-background: '#1A0F00', surface: '#2A1A00', overlay: 'rgba(180,100,0,0.35)',
-primary: '#C68B2A', text: '#F5D49A', textMuted: '#A07840'
-```
-
-**Team 4:** Post your final token values below and Team 1 will update `constants/colors.ts`.  
-If you are happy with the placeholders above, confirm them and mark this DONE.
+Full token file at `design/color-tokens.ts`. **Team 1:** copy into `app/constants/colors.ts`.
 
 ```ts
-// Team 4 final tokens — paste here:
+export const colorTokens = {
+  day: {
+    background: '#FFF8EA',
+    surface: '#FFFFFF',
+    surfaceAlt: '#F3E7D2',
+    primary: '#B7791F',
+    primaryPressed: '#8F5A13',
+    secondary: '#275C65',
+    accent: '#9E3F2F',
+    text: '#26170F',
+    textMuted: '#6F5944',
+    border: '#E7D6B8',
+    success: '#3F7D5B',
+    locked: '#8A6F55',
+  },
+  bedtime: {
+    background: '#100B08',
+    surface: '#1D130D',
+    surfaceAlt: '#2B1D12',
+    overlay: 'rgba(44, 24, 10, 0.72)',
+    scrim: 'rgba(0, 0, 0, 0.45)',
+    primary: '#D6A24E',
+    primaryPressed: '#B7791F',
+    secondary: '#6FA5A0',
+    accent: '#C86E4A',
+    text: '#F6E4C7',
+    textMuted: '#B99565',
+    border: '#49331F',
+    locked: '#8A6F55',
+  },
+} as const;
 ```
 
 *Posted by:* Team 4  
-*Posted at:* —
+*Posted at:* 2026-06-24 12:55 (+07)
 
 ---
 
 ## Working Name
 
-**Status:** `PENDING — agree at T+0:00 kickoff`
+**Status:** `LOCKED — Team 4 recommendation, posted 2026-06-24`
 
-Working name: *(TBD)*  
-Tagline KM: *(TBD)*  
-Tagline EN: *(TBD)*  
-Tagline FR: *(TBD)*
+Working name: **Nitean**  
+Tagline KM: **រឿងខ្មែរ បីភាសា សម្រាប់ពេលគេង**  
+Tagline EN: **Khmer stories in three languages, made for bedtime.**  
+Tagline FR: **Des histoires khmères en trois langues, pensées pour le coucher.**
+
+**Naming note:** "Nitean" is Khmer-rooted, pronounceable in EN/FR contexts, and broad enough for a future audio device. "Trilingual Tales" remains the descriptive subtitle / value prop.
+
+*Posted by:* Team 4  
+*Posted at:* 2026-06-24 12:55 (+07)
