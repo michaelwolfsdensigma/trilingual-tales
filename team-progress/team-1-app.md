@@ -9,7 +9,7 @@
 
 | Item | Status |
 |------|--------|
-| Overall | `IN PROGRESS` |
+| Overall | `DONE — integration complete, awaiting Team 2 audio + Team 4 tokens` |
 | Expo project scaffold | `DONE` |
 | Khmer font (device test) | `PENDING — need Expo Go on real device` |
 | Language picker | `DONE` |
@@ -18,7 +18,7 @@
 | Audio playback (Expo AV) | `DONE` |
 | Bedtime mode | `DONE` |
 | Expo Web pass | `DONE — verified in Safari on localhost:8081` |
-| Supabase integration | `BLOCKED — waiting on Team 3 credentials` |
+| Supabase integration | `DONE — real data from DB as of 2026-06-24 12:35 (+07)` |
 
 ---
 
@@ -36,8 +36,8 @@
 
 | Need | From | Status |
 |------|------|--------|
-| Supabase URL + anon key | Team 3 | `WAITING` |
-| Confirmed audio URL format | Team 2 | `WAITING` |
+| Supabase URL + anon key | Team 3 | `DONE` |
+| Confirmed audio URL format | Team 2 | `DONE — spec in INTEGRATION.md` |
 | Color tokens | Team 4 | `WAITING` |
 | Story cover dimensions | Team 4 | `WAITING` |
 
@@ -67,5 +67,18 @@ Web build verified in Safari (localhost:8081). TypeScript passes clean.
 - Real device with Expo Go to verify Khmer font rendering
 
 **Ready to integrate at T+2:30 checkpoint** as soon as Team 3 posts credentials.
+
+---
+
+**[12:35 (+07)] — Supabase integration DONE**
+
+Swapped mock-data hooks for live Supabase queries. `app/lib/supabase.ts` created; `useStories` and `useStory` now query the `stories` and `pages` tables directly. `.env` written with Team 3's credentials (gitignored). Committed and pushed on `team/1-app`.
+
+Status: Team 1 core build is complete. The app reads real data from the database.
+
+Needs:
+- Team 2: audio files in Storage (`audio` bucket) — `useAudio.ts` will pick them up automatically from `audio_url_km/en/fr` fields once pages are seeded
+- Team 4: color tokens to replace placeholders in `constants/colors.ts`
+- Neither is blocking the demo flow — app works end-to-end with whatever data is in the DB
 
 ---
