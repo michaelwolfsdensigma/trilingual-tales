@@ -10,9 +10,10 @@ import { DaytimeColors, BedtimeColors } from '../../constants/colors';
 
 export default function StoryReader() {
   const { id, locked } = useLocalSearchParams<{ id: string; locked?: string }>();
-  const { language, bedtimeMode, isPremium } = useApp();
-  const { story, pages, loading } = useStory(id);
+  const { language, bedtimeMode, isPremium, unlock } = useApp();
+  const { story, pages, loading } = useStory(id, isPremium);
   const [pageIndex, setPageIndex] = useState(0);
+  const [unlocking, setUnlocking] = useState(false);
   const { playChime } = useAudio(pages, pageIndex, language);
   const router = useRouter();
   const colors = bedtimeMode ? BedtimeColors : DaytimeColors;
@@ -25,7 +26,15 @@ export default function StoryReader() {
     );
   }
 
-  if (locked === 'true' || (!story?.is_free && !isPremium)) {
+  if (!isPremium && (locked === 'true' || !story?.is_free)) {
+    async function handleUnlock() {
+      setUnlocking(true);
+      await unlock();
+      // Re-enter the story cleanly (drops the ?locked flag); useStory refetches
+      // on the isPremium change and the now-ungated pages load.
+      router.replace(`/stories/${id}`);
+    }
+
     return (
       <View style={[styles.center, { backgroundColor: colors.background }]}>
         <Stack.Screen options={{ title: 'Premium Story', headerShown: true }} />
@@ -34,8 +43,17 @@ export default function StoryReader() {
           This story is for subscribers
         </Text>
         <Text style={[styles.gateBody, { color: colors.textMuted }]}>
-          Ask a parent to unlock premium stories.
+          Unlock the full library of premium stories.
         </Text>
+        <TouchableOpacity
+          style={[styles.unlockBtn, { backgroundColor: colors.primary }]}
+          onPress={handleUnlock}
+          disabled={unlocking}
+        >
+          {unlocking
+            ? <ActivityIndicator color="#fff" />
+            : <Text style={{ color: '#fff', fontWeight: '700' }}>Unlock Premium</Text>}
+        </TouchableOpacity>
         <TouchableOpacity
           style={[styles.backBtn, { borderColor: colors.primary }]}
           onPress={() => router.back()}
@@ -112,5 +130,6 @@ const styles = StyleSheet.create({
   lockIcon: { fontSize: 56, marginBottom: 16 },
   gateTitle: { fontSize: 22, fontWeight: '700', marginBottom: 8, textAlign: 'center' },
   gateBody: { fontSize: 16, textAlign: 'center', marginBottom: 24 },
+  unlockBtn: { borderRadius: 10, paddingHorizontal: 32, paddingVertical: 14, marginBottom: 12, minWidth: 200, alignItems: 'center' },
   backBtn: { borderWidth: 2, borderRadius: 10, paddingHorizontal: 24, paddingVertical: 12 },
 });
