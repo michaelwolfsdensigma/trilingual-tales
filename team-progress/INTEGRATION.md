@@ -110,6 +110,8 @@ create table profiles (
 - Toggle via Supabase Studio during demo (no admin UI needed for Build'o'thon)
 - **Enforcement:** RLS policies live (migration `002_rls.sql`). Free rows readable by anyone;
   premium rows require `public.is_premium()`. Flip `profiles.is_premium` in Table Editor to demo unlock.
+- **✅ Confirmed for Team 1 (2026-06-24):** anon (logged-out) reads on `is_free = true` stories AND their
+  pages are allowed — the SELECT policies have no `TO` restriction, so they apply to the `anon` role.
 
 *Ratified by:* Team 3 (RLS applied)  
 *Ratified at:* 2026-06-24 (+07)
