@@ -45,14 +45,14 @@ Format:
 
 ---
 
-## [OPEN] BLK-003 — Team 2 audio and illustration files not yet uploaded to Supabase Storage
+## [RESOLVED] BLK-003 — Team 2 audio and illustration files not yet uploaded to Supabase Storage
 
 - **Raised by:** Team 3 (integration support)
 - **Blocking:** Team 2 — cannot run seed SQL until files are in Storage (all URLs will 404)
 - **Blocking:** Team 1 — app has no real content to display until seed SQL is run
 - **Waiting on:** Team 2 — run upload script against Supabase Storage buckets `audio` + `illustrations`
 - **Raised at:** 2026-06-24 (+07)
-- **Resolved at:** —
-- **Resolution:** —
+- **Resolved at:** 2026-06-24 (+07)
+- **Resolution:** All 69 files uploaded successfully — 44 MP3s to `audio` bucket, 25 PNGs to `illustrations` bucket. Seed SQL (`content/seed_template.sql`) run in Supabase SQL Editor — 3 stories and 22 pages now live in the database. Team 1's app has real content to display.
 
 > **Team 2:** Upload script is ready (`upload_to_supabase.command`). Set `SUPABASE_SERVICE_ROLE_KEY` env var and run it. 44 MP3s → `audio` bucket, 25 PNGs → `illustrations` bucket. Then paste `content/seed_template.sql` into Supabase SQL Editor and run.
