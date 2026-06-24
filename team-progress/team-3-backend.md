@@ -9,12 +9,12 @@
 
 | Item | Status |
 |------|--------|
-| Overall | `NOT STARTED` |
-| Supabase project created | `PENDING` |
-| Credentials posted to INTEGRATION.md | `PENDING` |
-| Schema migrations run | `PENDING` |
+| Overall | `IN PROGRESS` |
+| Supabase project created | `DONE` |
+| Credentials posted to INTEGRATION.md | `DONE` |
+| Schema migrations run | `READY — SQL written, awaiting run in Studio` |
 | Storage buckets created (audio, illustrations) | `PENDING` |
-| Row-level security policies | `PENDING` |
+| Row-level security policies | `READY — SQL written, awaiting run in Studio` |
 | Auth (email/password + Google) | `PENDING` |
 | Profile trigger (auto-create on signup) | `PENDING` |
 | is_premium toggle accessible in Studio | `PENDING` |
@@ -56,5 +56,14 @@
 ## Progress Log
 
 *(Append timestamped entries below as work proceeds. Do not edit previous entries.)*
+
+### 2026-06-24 11:43 (+07)
+- Supabase project created (ref `hmhcyaxvcgepldafpeol`).
+- **Credentials posted to INTEGRATION.md** — `SUPABASE_URL` + anon key now LIVE. All teams unblocked on creds.
+- Wrote migrations: `backend/migrations/001_schema.sql` (stories/pages/profiles + signup trigger) and
+  `backend/migrations/002_rls.sql` (free-vs-premium RLS, profiles own-row).
+- Wrote `backend/supabase-client.ts` for Team 1 (reads `EXPO_PUBLIC_SUPABASE_*` env vars).
+- **Next:** run both migrations in the Supabase SQL Editor, create Storage buckets `audio` + `illustrations`,
+  enable email/password + Google auth.
 
 ---

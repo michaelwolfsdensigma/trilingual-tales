@@ -7,15 +7,18 @@ When anything in this file changes, post an update in BLOCKERS.md so other teams
 
 ## Supabase Credentials
 
-**Status:** `PENDING — Team 3 to fill in`
+**Status:** `LIVE — posted by Team 3`
 
 ```
-SUPABASE_URL=
-SUPABASE_ANON_KEY=
+SUPABASE_URL=https://hmhcyaxvcgepldafpeol.supabase.co
+SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhtaGN5YXh2Y2dlcGxkYWZwZW9sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyNTQzNDMsImV4cCI6MjA5NzgzMDM0M30.6xrcr1HKbmcVJZXJ_vhODIIlphskEliecZwnxmF6VqE
 ```
+
+> The `anon` key is safe to commit — it is the public, RLS-gated client key.
+> The database password and `service_role` key are secrets and are **never** committed here.
 
 *Posted by:* Team 3  
-*Posted at:* —
+*Posted at:* 2026-06-24 11:43 (+07)
 
 ---
 
