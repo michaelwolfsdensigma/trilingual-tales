@@ -40,8 +40,8 @@
 
 | Need | From | Status |
 |------|------|--------|
-| Working name confirmed | Whole group | `WAITING — T+0:00` |
-| Expo screen dimensions (for icon spec) | Team 1 | `WAITING` |
+| Working name confirmed | Whole group | `DONE — Nitean` |
+| Expo screen dimensions (for icon spec) | Team 1 | `DONE — see below` |
 
 ---
 
@@ -54,6 +54,24 @@
 **Daytime mode:** —  
 **Bedtime mode:** Dark amber / warm brass / near-black. Screen-calming. Low animation.  
 **Typography note:** Noto Sans Khmer is locked in (already in the tech stack). Pair it with a warm Latin face.
+
+---
+
+## Expo Icon + Splash Dimensions (from Team 1)
+
+All assets go in `app/assets/`. Paths are already wired in `app.json` — just drop the PNGs in.
+
+| File | Size | Notes |
+|------|------|-------|
+| `icon.png` | **1024 × 1024 px** | iOS App Store icon. Square, no transparency, no rounded corners (iOS applies its own mask). Used as fallback on all platforms. |
+| `android-icon-foreground.png` | **1024 × 1024 px** | Adaptive icon foreground. Keep the actual artwork within the **central 676 × 676 px** safe zone — the outer ring gets masked to circle/squircle by the launcher. Transparent background. |
+| `android-icon-background.png` | **1024 × 1024 px** | Adaptive icon background layer. Can be a solid fill or subtle texture. Current placeholder color: `#E6F4FE` (override with Nitean palette — suggest `#FFF8EA` daytime background). |
+| `android-icon-monochrome.png` | **1024 × 1024 px** | Android 13+ themed icon (Material You). Single-colour silhouette, white on transparent. Same safe-zone rule as foreground. |
+| `favicon.png` | **48 × 48 px** | Web only. Simple mark — the full wordmark won't read at this size. |
+
+**Splash screen** is not yet configured in `app.json`. If Team 4 wants a branded splash, add an asset and let Team 1 know — we'll wire it in. Suggested size: **1284 × 2778 px** (iPhone Pro Max @3x, centred artwork, solid Nitean background fills the rest).
+
+**No transparency on `icon.png`** — the App Store rejects icons with alpha.
 
 ---
 
