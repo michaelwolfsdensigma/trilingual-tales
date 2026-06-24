@@ -108,10 +108,14 @@ create table profiles (
 - Free stories: `is_free = true` on the `stories` row (accessible to all, no auth required)
 - Premium stories: require auth + `profiles.is_premium = true`
 - Toggle via Supabase Studio during demo (no admin UI needed for Build'o'thon)
-- **Enforcement:** RLS policies live (migration `002_rls.sql`). Free rows readable by anyone;
-  premium rows require `public.is_premium()`. Flip `profiles.is_premium` in Table Editor to demo unlock.
-- **✅ Confirmed for Team 1 (2026-06-24):** anon (logged-out) reads on `is_free = true` stories AND their
-  pages are allowed — the SELECT policies have no `TO` restriction, so they apply to the `anon` role.
+- **Enforcement (corrected in `003`):** the gate is on **pages (content)**, not on the stories listing.
+  - **`stories`** — ALL rows listable by everyone (migration `003`), so locked stories appear in the
+    grid with a lock badge (title + cover + `is_free`). They are no longer hidden.
+  - **`pages`** — readable only if parent story `is_free = true` OR `public.is_premium()` (migration `002`).
+    This is what actually locks the story content. Flip `profiles.is_premium` in Table Editor to unlock.
+- **⚠️ Fix note (2026-06-24):** `002` originally gated the `stories` table, which made premium stories
+  *invisible* to anon users (reported by Team 1/QA). `003_fix_stories_visibility.sql` corrects this.
+  **Run `003` if you applied `002` before this note.**
 
 *Ratified by:* Team 3 (RLS applied)  
 *Ratified at:* 2026-06-24 (+07)

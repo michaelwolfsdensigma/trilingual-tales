@@ -92,3 +92,10 @@
   integration is consistent with this. No backend change needed.
 
 ---
+
+### 2026-06-24 13:40 (+07) — RLS fix: locked stories were invisible
+- **Bug (reported via Team 1/QA):** only 2 of 3 stories showed; the locked/premium one was hidden from anon users.
+- **Cause:** `002` gated the `stories` table itself, so non-premium users couldn't see premium rows at all.
+- **Fix:** `backend/migrations/003_fix_stories_visibility.sql` — all stories now listable (show with lock badge);
+  the freemium gate stays on `pages` (content), which is the correct place. Premium page text/audio still hidden until `is_premium`.
+- **Action for whoever owns the DB:** run `003` in the SQL Editor (one statement set). No data change, policy-only.
