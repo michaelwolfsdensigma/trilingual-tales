@@ -113,9 +113,9 @@ create table profiles (
     grid with a lock badge (title + cover + `is_free`). They are no longer hidden.
   - **`pages`** — readable only if parent story `is_free = true` OR `public.is_premium()` (migration `002`).
     This is what actually locks the story content. Flip `profiles.is_premium` in Table Editor to unlock.
-- **⚠️ Fix note (2026-06-24):** `002` originally gated the `stories` table, which made premium stories
-  *invisible* to anon users (reported by Team 1/QA). `003_fix_stories_visibility.sql` corrects this.
-  **Run `003` if you applied `002` before this note.**
+- **✅ Fix confirmed live (2026-06-24):** `002` originally gated the `stories` table, which made premium
+  stories *invisible* to anon users (reported by Team 1/QA). `003_fix_stories_visibility.sql` was run in
+  the SQL Editor and is now live — all 3 stories list, "The Golden Snail" shows locked with `is_free = false`.
 
 *Ratified by:* Team 3 (RLS applied)  
 *Ratified at:* 2026-06-24 (+07)
