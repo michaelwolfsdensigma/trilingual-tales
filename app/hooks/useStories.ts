@@ -1,17 +1,20 @@
 import { useState, useEffect } from 'react';
 import { Story } from '../types';
-import { MOCK_STORIES } from '../lib/mockData';
+import { supabase } from '../lib/supabase';
 
-// Switch to a real Supabase query at Task 9
 export function useStories() {
   const [stories, setStories] = useState<Story[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      setStories(MOCK_STORIES);
-      setLoading(false);
-    }, 300);
+    supabase
+      .from('stories')
+      .select('*')
+      .order('created_at', { ascending: true })
+      .then(({ data, error }) => {
+        if (!error && data) setStories(data as Story[]);
+        setLoading(false);
+      });
   }, []);
 
   return { stories, loading };

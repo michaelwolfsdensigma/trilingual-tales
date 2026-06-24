@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Story, Page } from '../types';
-import { MOCK_STORIES, MOCK_PAGES } from '../lib/mockData';
+import { supabase } from '../lib/supabase';
 
 export function useStory(id: string) {
   const [story, setStory] = useState<Story | null>(null);
@@ -8,13 +8,14 @@ export function useStory(id: string) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      const found = MOCK_STORIES.find(s => s.id === id) ?? null;
-      const foundPages = MOCK_PAGES[id] ?? [];
-      setStory(found);
-      setPages(foundPages.sort((a, b) => a.page_number - b.page_number));
+    Promise.all([
+      supabase.from('stories').select('*').eq('id', id).single(),
+      supabase.from('pages').select('*').eq('story_id', id).order('page_number'),
+    ]).then(([storyRes, pagesRes]) => {
+      if (storyRes.data) setStory(storyRes.data as Story);
+      if (pagesRes.data) setPages(pagesRes.data as Page[]);
       setLoading(false);
-    }, 200);
+    });
   }, [id]);
 
   return { story, pages, loading };
