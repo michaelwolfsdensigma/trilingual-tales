@@ -9,16 +9,16 @@
 
 | Item | Status |
 |------|--------|
-| Overall | `IN PROGRESS` |
+| Overall | `READY FOR INTEGRATION` |
 | Supabase project created | `DONE` |
 | Credentials posted to INTEGRATION.md | `DONE` |
-| Schema migrations run | `READY — SQL written, awaiting run in Studio` |
-| Storage buckets created (audio, illustrations) | `PENDING` |
-| Row-level security policies | `READY — SQL written, awaiting run in Studio` |
-| Auth (email/password + Google) | `PENDING` |
-| Profile trigger (auto-create on signup) | `PENDING` |
-| is_premium toggle accessible in Studio | `PENDING` |
-| supabase-client.ts export shared | `PENDING` |
+| Schema migrations run | `DONE — 001 applied to live DB` |
+| Storage buckets created (audio, illustrations) | `DONE — both public` |
+| Row-level security policies | `DONE — 002 applied to live DB` |
+| Auth (email/password + Google) | `IN PROGRESS — enable Email + disable confirm; Google optional` |
+| Profile trigger (auto-create on signup) | `DONE — trigger live (part of 001)` |
+| is_premium toggle accessible in Studio | `DONE — flip in Table Editor → profiles` |
+| supabase-client.ts export shared | `DONE — backend/supabase-client.ts` |
 
 ---
 
@@ -65,5 +65,15 @@
 - Wrote `backend/supabase-client.ts` for Team 1 (reads `EXPO_PUBLIC_SUPABASE_*` env vars).
 - **Next:** run both migrations in the Supabase SQL Editor, create Storage buckets `audio` + `illustrations`,
   enable email/password + Google auth.
+
+### 2026-06-24 — backend live
+- ✅ Migrations `001_schema.sql` + `002_rls.sql` run in SQL Editor — no errors. Tables + trigger + RLS live.
+- ✅ Storage buckets `audio` and `illustrations` created, both **public**. **Team 2: ready for uploads.**
+- ✅ RLS enforced → freemium gate works at the DB. Demo unlock = flip `profiles.is_premium` in Table Editor.
+- INTEGRATION.md: Audio / Illustration / Subscription contracts marked LIVE; schema change-log notes migrations applied.
+- **Remaining for Team 3:** finish Auth — enable **Email** provider and turn **off** email confirmation
+  (Authentication → Providers → Email) so demo signups are instant. Google login optional.
+- **Hand-offs:** Team 1 → pull `main`, set `EXPO_PUBLIC_SUPABASE_URL` / `EXPO_PUBLIC_SUPABASE_ANON_KEY`.
+  Team 2 → buckets live, seed via SQL Editor (bypasses RLS).
 
 ---

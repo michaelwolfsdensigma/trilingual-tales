@@ -59,6 +59,7 @@ create table profiles (
 *Ratified by:* Team 1 (de facto — built and TypeScript-verified against this schema)  
 *Ratified at:* ~T+0:45  
 *Change log:* (append here if schema changes after ratification)
+- 2026-06-24 (+07) — Migrations `001_schema.sql` + `002_rls.sql` **applied** to the live DB by Team 3. Tables `stories`, `pages`, `profiles` created; signup trigger + RLS active. No schema changes from the ratified model.
 
 > **Team 3 note:** Run migrations exactly as written above. Team 1's `types/index.ts` maps directly to these column names — any rename will break the app.
 
@@ -75,37 +76,43 @@ create table profiles (
 - URL pattern: `{SUPABASE_URL}/storage/v1/object/public/audio/{filename}`
 - Playback: pre-load on story open; do not start on tap
 
-*Ratified by:* —  
-*Ratified at:* —
+**✅ Bucket `audio` created and PUBLIC (Team 3, 2026-06-24). Ready for Team 2 uploads.**
+
+*Ratified by:* Team 3 (bucket live)  
+*Ratified at:* 2026-06-24 (+07)
 
 ---
 
 ## Illustration File Contract
 
-**Status:** `PENDING`
+**Status:** `LIVE — bucket created by Team 3`
 
 - Format: PNG, max 1200px wide
 - Storage: Supabase Storage, bucket `illustrations`
 - Naming: `{story_id}_{page_number:02d}.png`
 - Cover images: `{story_id}_cover.png`
 
-*Ratified by:* —  
-*Ratified at:* —
+**✅ Bucket `illustrations` created and PUBLIC (Team 3, 2026-06-24). Ready for Team 2 uploads.**
+
+*Ratified by:* Team 3 (bucket live)  
+*Ratified at:* 2026-06-24 (+07)
 
 ---
 
 ## Subscription / Freemium Contract
 
-**Status:** `PENDING`
+**Status:** `LIVE — enforced by RLS in the database`
 
 - No real payment flow in this build
 - `is_premium` field on `profiles` table controls access
 - Free stories: `is_free = true` on the `stories` row (accessible to all, no auth required)
 - Premium stories: require auth + `profiles.is_premium = true`
 - Toggle via Supabase Studio during demo (no admin UI needed for Build'o'thon)
+- **Enforcement:** RLS policies live (migration `002_rls.sql`). Free rows readable by anyone;
+  premium rows require `public.is_premium()`. Flip `profiles.is_premium` in Table Editor to demo unlock.
 
-*Ratified by:* —  
-*Ratified at:* —
+*Ratified by:* Team 3 (RLS applied)  
+*Ratified at:* 2026-06-24 (+07)
 
 ---
 
