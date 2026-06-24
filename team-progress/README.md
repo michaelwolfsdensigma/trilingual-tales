@@ -63,10 +63,10 @@ Example: `progress(team-3): Supabase credentials posted to INTEGRATION.md`
 
 ## Coordinator Note — *updated by Arden*
 
-**Team 1 has shipped a complete app.** Full Expo scaffold, all screens, audio hooks, bedtime mode, freemium gate, TypeScript clean, verified on web. Running on mock data. Ready to connect to Supabase in ~5 minutes once Team 3 posts credentials.
+**Team 3: DONE.** Schema, RLS, auth, storage buckets — all live. Credentials in INTEGRATION.md. BLK-001 resolved. Team 3 is now in integration-support mode. One minor note: the deliverables table in `team-3-backend.md` still shows `PENDING` for all rows — Team 3 should do a quick pass to mark those `DONE` to keep the board accurate.
 
-**Team 3 is the critical path.** Every other team is blocked on or waiting for their Supabase project. This is the single highest-priority action right now.
+**Team 1: next action is integration.** Pull `main`, copy `backend/supabase-client.ts` into `app/lib/`, create `app/.env` with `EXPO_PUBLIC_SUPABASE_URL` and `EXPO_PUBLIC_SUPABASE_ANON_KEY` (values in INTEGRATION.md), then swap `app/hooks/useStories.ts` and `app/hooks/useStory.ts` to query Supabase instead of `mockData.ts`. Team 3 is on call for any RLS issues.
 
-**Team 2** can start writing story texts and translations immediately — uploads wait on Team 3 but content work does not. Team 1 has already roughed in 3 Khmer folk tales in `app/lib/mockData.ts` (Hare & Tortoise, Buffalo & Crow, Moon & Rabbit with Khmer/EN/FR text). Team 2 can build from these or replace them — note the mock IDs (`mock-001` etc.) will become real Supabase UUIDs once the database is live.
+**Team 2: fully unblocked.** Buckets `audio` and `illustrations` are live and public. Write story texts and translations first (no network needed), then upload assets. Seed via Supabase SQL Editor (bypasses RLS, which is the right approach for seeding). Team 1's `mockData.ts` has 3 rough folk tales with real Khmer text — use those as a starting point or replace them. Real Supabase UUIDs will differ from the `mock-001` IDs so seed fresh rows.
 
-**Team 4** can start immediately — working name, color tokens, covers. Nothing blocks them. Team 1 has placeholder colors in `app/constants/colors.ts` matching the warm/bedtime palette; Team 4 just needs to post final tokens to INTEGRATION.md and Team 1 will update that file.
+**Team 4: nothing blocking you.** Working name and color tokens are the two highest-value outputs right now. Team 1's placeholder palette is live and wearable — confirm or replace it in INTEGRATION.md. BLK-002 stays open until color tokens and a name are posted.
