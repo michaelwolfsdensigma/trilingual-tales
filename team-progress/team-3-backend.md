@@ -104,3 +104,13 @@
 - `003_fix_stories_visibility.sql` has been run in the Supabase SQL Editor. Bug closed.
 - All 3 stories now list for anon users; "The Golden Snail" appears with `is_free = false` (lock badge), its pages still gated by `002`'s policy until `profiles.is_premium = true`.
 - INTEGRATION.md fix note updated from "pending" to confirmed live.
+
+### 2026-06-24 15:20 (+07) — Team 1 wired real unlock; needs Anonymous Sign-ins enabled
+- Team 1 (`a1790a2`) wired the freemium unlock end-to-end: app now signs in anonymously on launch
+  so `auth.uid()` is real, reads `profiles.is_premium`, and `unlock()` flips it via a self-update
+  (already permitted by `002`'s `"update own profile"` policy — no RLS change needed).
+- **Action required (Team 3, dashboard only — no migration):** Supabase → Authentication → Providers
+  → enable **Anonymous Sign-ins**. Without this, `supabase.auth.signInAnonymously()` fails and the
+  app never gets a session, so the unlock button has nothing to flip.
+- No schema/RLS change needed — `handle_new_user()` trigger (001) already auto-creates a profile row
+  for any new `auth.users` row, anonymous or not.
