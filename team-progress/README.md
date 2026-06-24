@@ -52,10 +52,10 @@ Example: `progress(team-3): Supabase credentials posted to INTEGRATION.md`
 
 | Team | Status | Current Task | Blocked? |
 |------|--------|-------------|---------|
-| Team 1 — App | `IN PROGRESS` | Apply Team 4 color tokens; real content live in app | — |
+| Team 1 — App | `IN PROGRESS` | Integrating Team 4 icons/splash/bedtime spec | — |
 | Team 2 — Content | `DONE` | 3 stories, 22 pages, 69 files in Storage, seed SQL run | — |
-| Team 3 — Backend | `DONE` | Integration support only | — |
-| Team 4 — Design | `DONE` | Design assets/specs posted; integration support only | — |
+| Team 3 — Backend | `DONE` | ⚠️ Migration 003 in repo — must be run in SQL Editor before demo | — |
+| Team 4 — Design | `DONE` | All deliverables posted — integration support only | — |
 
 **Statuses:** `NOT STARTED` · `IN PROGRESS` · `BLOCKED` · `READY FOR INTEGRATION` · `DONE`
 
@@ -63,14 +63,19 @@ Example: `progress(team-3): Supabase credentials posted to INTEGRATION.md`
 
 ## Coordinator Note — *updated by Arden*
 
-**ALL BLOCKERS RESOLVED.** BLK-001, BLK-002, BLK-003 all closed. The app has a live backend, real content, and a name.
+**Demo readiness: ~90%.** Four active blockers are all closed. The app is named Nitean, has live backend, real trilingual content, and final design assets. One critical database action and Team 1's final integration pass stand between now and demo-ready.
 
-**Team 2: DONE — excellent work.** 3 trilingual folk tales, 22 pages, 44 TTS audio files (EN + FR), 25 illustrations — all in Supabase Storage. Seed SQL run, 3 stories live in the DB. IP log clean (all public domain). ⚠️ One outstanding flag: Story 2 Khmer text is AI-generated and needs native speaker review before KM audio is recorded. Khmer audio across all 3 stories (22 files) is the single remaining content gap — not a demo blocker but noted.
+---
 
-**Team 3: DONE.** Schema, RLS, auth, storage, seed template, integration support — everything delivered. Team 3 also took on coordination cleanup (resolving BLK-003, updating Team 2's progress file). Strong team contribution.
+**⚠️ CRITICAL — Migration 003 must be run before the demo.**
+`backend/migrations/003_fix_stories_visibility.sql` is in the repo but not yet applied to the live DB. Without it, locked/premium stories are completely invisible to non-premium users (no lock badge — they just don't appear). This breaks the freemium demo. Team 3 to paste into Supabase SQL Editor and run immediately.
 
-**Team 1: real content is in the app.** Supabase hooks are live. Remaining: pull `design/color-tokens.ts` and apply to `app/constants/colors.ts`; post Expo icon dimensions to `team-4-design.md`. Khmer font on a real device is still unverified — worth testing before demo if possible.
+---
 
-**Team 4: DONE.** Name, tokens, bedtime mode spec, story cover template, Expo app icon/splash assets, and demo prototype are posted. Team 1 can pull `app/assets/*`, `design/bedtime-mode-spec.md`, and `design/asset-manifest.md`.
+**Team 1 — finishing the integration pass.** Two solid commits: Nitean palette applied to `app/constants/colors.ts`, and full Team 4 asset integration (icon, splash, Android variants, `app.json` renamed to "Nitean", bedtime image opacity applied). Branch not yet merged to main — merge when the final integration pass is complete. Progress file status table is stale but branch activity confirms they're moving.
 
-**Demo readiness: ~85%.** The app works end-to-end with real content and Team 4 polish assets/specs are ready. Remaining gap: Khmer audio/native-speaker review and Team 1 final integration pass.
+**Team 2 — DONE.** Outstanding execution. 3 folk tales, 22 pages, 44 audio files, 25 illustrations. Known items for post-demo: KM audio (native speaker session needed for all 22 pages), Story 2 Khmer text native review, per-page unique illustrations.
+
+**Team 3 — DONE** (pending migration 003 above). Strong coordination support throughout — self-caught and fixed a real freemium UX bug before it hit the demo.
+
+**Team 4 — DONE.** Complete design system: color tokens, bedtime spec (detailed with motion, accessibility, copy), icon/splash in all Expo sizes, HTML prototype, cover template, asset manifest. Team 4 even raised and self-resolved BLK-004. Best coordination discipline of the build.
