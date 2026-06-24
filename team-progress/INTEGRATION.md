@@ -24,7 +24,7 @@ SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsI
 
 ## Data Model (Agreed Schema)
 
-**Status:** `PENDING — ratify at T+0:00 kickoff`
+**Status:** `RATIFIED — Team 1 built against this schema; TypeScript types match exactly`
 
 ```sql
 -- Stories
@@ -56,15 +56,17 @@ create table profiles (
 );
 ```
 
-*Ratified by:* —  
-*Ratified at:* —  
+*Ratified by:* Team 1 (de facto — built and TypeScript-verified against this schema)  
+*Ratified at:* ~T+0:45  
 *Change log:* (append here if schema changes after ratification)
+
+> **Team 3 note:** Run migrations exactly as written above. Team 1's `types/index.ts` maps directly to these column names — any rename will break the app.
 
 ---
 
 ## Audio File Contract
 
-**Status:** `PENDING — ratify at T+0:00 kickoff`
+**Status:** `RATIFIED — Team 1 built audio hooks against this spec`
 
 - Format: MP3, 64 kbps, mono
 - Storage: Supabase Storage, bucket `audio`
@@ -109,15 +111,25 @@ create table profiles (
 
 ## Color Tokens (from Team 4)
 
-**Status:** `PENDING — Team 4 to fill in by T+0:30`
+**Status:** `PENDING — Team 4 to fill in; Team 1 has live placeholders in app/constants/colors.ts`
+
+Team 1 has shipped working placeholder tokens matching the intended palette:
 
 ```ts
-// Paste Team 4's color token export here
-export const colors = {
-  // daytime
-  // bedtime
-  // typography
-}
+// Daytime
+background: '#FDF6E3', surface: '#FFFFFF', primary: '#C68B2A',
+text: '#2C1A0E', textMuted: '#7A5C3A', border: '#E8D5B0'
+
+// Bedtime
+background: '#1A0F00', surface: '#2A1A00', overlay: 'rgba(180,100,0,0.35)',
+primary: '#C68B2A', text: '#F5D49A', textMuted: '#A07840'
+```
+
+**Team 4:** Post your final token values below and Team 1 will update `constants/colors.ts`.  
+If you are happy with the placeholders above, confirm them and mark this DONE.
+
+```ts
+// Team 4 final tokens — paste here:
 ```
 
 *Posted by:* Team 4  

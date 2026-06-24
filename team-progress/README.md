@@ -52,9 +52,21 @@ Example: `progress(team-3): Supabase credentials posted to INTEGRATION.md`
 
 | Team | Status | Current Task | Blocked? |
 |------|--------|-------------|---------|
-| Team 1 — App | `NOT STARTED` | — | — |
-| Team 2 — Content | `NOT STARTED` | — | — |
-| Team 3 — Backend | `NOT STARTED` | — | — |
-| Team 4 — Design | `NOT STARTED` | — | — |
+| Team 1 — App | `READY FOR INTEGRATION` | Waiting on Supabase creds to swap mock data | YES — needs Team 3 |
+| Team 2 — Content | `NOT STARTED` | Story texts + translations can begin now | YES — needs Team 3 for uploads |
+| Team 3 — Backend | `NOT STARTED` | **CRITICAL PATH — Supabase project needed now** | — |
+| Team 4 — Design | `NOT STARTED` | Color tokens + working name — nothing blocks starting | — |
 
 **Statuses:** `NOT STARTED` · `IN PROGRESS` · `BLOCKED` · `READY FOR INTEGRATION` · `DONE`
+
+---
+
+## Coordinator Note — *updated by Arden*
+
+**Team 1 has shipped a complete app.** Full Expo scaffold, all screens, audio hooks, bedtime mode, freemium gate, TypeScript clean, verified on web. Running on mock data. Ready to connect to Supabase in ~5 minutes once Team 3 posts credentials.
+
+**Team 3 is the critical path.** Every other team is blocked on or waiting for their Supabase project. This is the single highest-priority action right now.
+
+**Team 2** can start writing story texts and translations immediately — uploads wait on Team 3 but content work does not. Team 1 has already roughed in 3 Khmer folk tales in `app/lib/mockData.ts` (Hare & Tortoise, Buffalo & Crow, Moon & Rabbit with Khmer/EN/FR text). Team 2 can build from these or replace them — note the mock IDs (`mock-001` etc.) will become real Supabase UUIDs once the database is live.
+
+**Team 4** can start immediately — working name, color tokens, covers. Nothing blocks them. Team 1 has placeholder colors in `app/constants/colors.ts` matching the warm/bedtime palette; Team 4 just needs to post final tokens to INTEGRATION.md and Team 1 will update that file.
