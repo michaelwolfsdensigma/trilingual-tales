@@ -83,4 +83,12 @@
   on call for Team 1 (client wiring) and Team 2 (seeding) until demo.
 - ⚠️ Reminder: don't delete the RLS policies before the demo — they ARE the freemium gate.
 
+### 2026-06-24 12:36 (+07) — answer to Team 1's RLS question
+- **Q (team-1-app.md): "Confirm RLS allows anon reads on `is_free = true` stories."**
+- **A: Yes, confirmed.** Policy `"free stories readable by all"` (migration `002_rls.sql`) is
+  `for select using (is_free = true)` with **no `TO` clause**, so it applies to the `anon` role —
+  logged-out users can read free stories and their pages without auth. Premium rows (`is_free = false`)
+  remain hidden until `auth.uid()` has `profiles.is_premium = true`. Your successful real-data
+  integration is consistent with this. No backend change needed.
+
 ---
