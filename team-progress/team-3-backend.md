@@ -9,13 +9,13 @@
 
 | Item | Status |
 |------|--------|
-| Overall | `READY FOR INTEGRATION` |
+| Overall | `DONE` |
 | Supabase project created | `DONE` |
 | Credentials posted to INTEGRATION.md | `DONE` |
 | Schema migrations run | `DONE — 001 applied to live DB` |
 | Storage buckets created (audio, illustrations) | `DONE — both public` |
 | Row-level security policies | `DONE — 002 applied to live DB` |
-| Auth (email/password + Google) | `IN PROGRESS — enable Email + disable confirm; Google optional` |
+| Auth (email/password + Google) | `DONE — Email enabled, confirm off; Google optional/skipped` |
 | Profile trigger (auto-create on signup) | `DONE — trigger live (part of 001)` |
 | is_premium toggle accessible in Studio | `DONE — flip in Table Editor → profiles` |
 | supabase-client.ts export shared | `DONE — backend/supabase-client.ts` |
@@ -75,5 +75,12 @@
   (Authentication → Providers → Email) so demo signups are instant. Google login optional.
 - **Hand-offs:** Team 1 → pull `main`, set `EXPO_PUBLIC_SUPABASE_URL` / `EXPO_PUBLIC_SUPABASE_ANON_KEY`.
   Team 2 → buckets live, seed via SQL Editor (bypasses RLS).
+
+### 2026-06-24 — Team 3 backend COMPLETE ✅
+- ✅ Auth: Email provider enabled, email confirmation OFF (instant demo signups). Google skipped (optional).
+- Smoke test passed: free + locked story insert + RLS gate verified.
+- **Team 3 status: DONE.** All deliverables shipped and on `main`. Now in integration-support mode —
+  on call for Team 1 (client wiring) and Team 2 (seeding) until demo.
+- ⚠️ Reminder: don't delete the RLS policies before the demo — they ARE the freemium gate.
 
 ---
