@@ -71,7 +71,7 @@ export function BedtimeOverlay() {
 }
 
 const styles = StyleSheet.create({
-  tint: { ...StyleSheet.absoluteFillObject, zIndex: 1 },
+  tint: { ...StyleSheet.absoluteFill, zIndex: 1 },
   lockBtn: { position: 'absolute', top: 16, right: 16, zIndex: 2 },
   lockTouch: { padding: 8, backgroundColor: 'rgba(0,0,0,0.4)', borderRadius: 8 },
   lockIcon: { fontSize: 22 },
