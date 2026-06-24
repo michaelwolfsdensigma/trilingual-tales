@@ -52,10 +52,10 @@ Example: `progress(team-3): Supabase credentials posted to INTEGRATION.md`
 
 | Team | Status | Current Task | Blocked? |
 |------|--------|-------------|---------|
-| Team 1 — App | `IN PROGRESS` | Integrating Team 4 icons/splash/bedtime spec | — |
-| Team 2 — Content | `DONE` | 3 stories, 22 pages, 69 files in Storage, seed SQL run | — |
-| Team 3 — Backend | `DONE` | ⚠️ Migration 003 in repo — must be run in SQL Editor before demo | — |
-| Team 4 — Design | `DONE` | All deliverables posted — integration support only | — |
+| Team 1 — App | `IN PROGRESS` | Final branch merge to main — last step | — |
+| Team 2 — Content | `DONE` | — | — |
+| Team 3 — Backend | `DONE` | Migration 003 confirmed live ✅ | — |
+| Team 4 — Design | `DONE` | — | — |
 
 **Statuses:** `NOT STARTED` · `IN PROGRESS` · `BLOCKED` · `READY FOR INTEGRATION` · `DONE`
 
@@ -63,19 +63,16 @@ Example: `progress(team-3): Supabase credentials posted to INTEGRATION.md`
 
 ## Coordinator Note — *updated by Arden*
 
-**Demo readiness: ~90%.** Four active blockers are all closed. The app is named Nitean, has live backend, real trilingual content, and final design assets. One critical database action and Team 1's final integration pass stand between now and demo-ready.
+**Demo readiness: ~95%.** One step remaining — Team 1 merges their branch to main.
 
 ---
 
-**⚠️ CRITICAL — Migration 003 must be run before the demo.**
-`backend/migrations/003_fix_stories_visibility.sql` is in the repo but not yet applied to the live DB. Without it, locked/premium stories are completely invisible to non-premium users (no lock badge — they just don't appear). This breaks the freemium demo. Team 3 to paste into Supabase SQL Editor and run immediately.
+**Migration 003 ✅ LIVE** — confirmed by Team 3 at 14:40. All 3 stories now appear for anon users. The Golden Snail shows with a lock badge; its pages remain gated behind `is_premium`. Freemium demo flow is working correctly.
 
----
+**Team 1 — one step from done.** Nitean palette applied, Team 4 icons/splash integrated, `app.json` renamed, bedtime image opacity set. Three commits on `team/1-app` not yet on main — merge to main is the final act.
 
-**Team 1 — finishing the integration pass.** Two solid commits: Nitean palette applied to `app/constants/colors.ts`, and full Team 4 asset integration (icon, splash, Android variants, `app.json` renamed to "Nitean", bedtime image opacity applied). Branch not yet merged to main — merge when the final integration pass is complete. Progress file status table is stale but branch activity confirms they're moving.
+**Team 2 — DONE.** 3 folk tales, 22 pages, 44 audio files (EN + FR), 25 illustrations. Post-demo backlog: KM audio (native speaker session), Story 2 Khmer text review, per-page unique illustrations.
 
-**Team 2 — DONE.** Outstanding execution. 3 folk tales, 22 pages, 44 audio files, 25 illustrations. Known items for post-demo: KM audio (native speaker session needed for all 22 pages), Story 2 Khmer text native review, per-page unique illustrations.
+**Team 3 — DONE.** Caught and fixed a real freemium UX bug (locked stories invisible) before it hit the demo. Strong coordination throughout.
 
-**Team 3 — DONE** (pending migration 003 above). Strong coordination support throughout — self-caught and fixed a real freemium UX bug before it hit the demo.
-
-**Team 4 — DONE.** Complete design system: color tokens, bedtime spec (detailed with motion, accessibility, copy), icon/splash in all Expo sizes, HTML prototype, cover template, asset manifest. Team 4 even raised and self-resolved BLK-004. Best coordination discipline of the build.
+**Team 4 — DONE.** Complete: tokens, bedtime spec, icon/splash, HTML prototype, cover template, asset manifest. Self-managed BLK-004. Best coordination discipline of the build.
