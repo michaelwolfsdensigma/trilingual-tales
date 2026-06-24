@@ -9,18 +9,18 @@
 
 | Item | Status |
 |------|--------|
-| Overall | `IN PROGRESS` |
+| Overall | `DONE — design polish deliverables posted` |
 | Working name agreed | `DONE — Nitean posted to INTEGRATION.md` |
 | One-line tagline (KM / EN / FR) | `DONE — posted to INTEGRATION.md` |
 | Daytime color palette | `DONE` |
 | Bedtime color palette | `DONE` |
 | Color tokens exported (TS file) | `DONE — design/color-tokens.ts` |
-| Typography pairing specified | `IN PROGRESS` |
-| Story cover template (PNG) | `PENDING` |
-| Bedtime mode visual spec (written + Figma) | `PENDING` |
-| App icon (all required sizes) | `PENDING` |
-| Splash screen | `PENDING` |
-| Figma prototype (full reading flow) | `PENDING` |
+| Typography pairing specified | `DONE — Noto Sans Khmer + warm Latin fallback` |
+| Story cover template (PNG) | `DONE — design/exports/story-cover-template.png` |
+| Bedtime mode visual spec (written + Figma) | `DONE — design/bedtime-mode-spec.md + HTML prototype` |
+| App icon (all required sizes) | `DONE — app/assets + design/exports` |
+| Splash screen | `DONE — app/assets/splash-icon.png + design reference` |
+| Figma prototype (full reading flow) | `DONE — HTML prototype at design/prototype/index.html` |
 
 ---
 
@@ -29,10 +29,10 @@
 | Deliverable | Needed by | Due | Status |
 |-------------|-----------|-----|--------|
 | Color tokens (TS export) | Team 1 | T+0:30 | `DONE — design/color-tokens.ts + INTEGRATION.md` |
-| Story cover template + dimensions | Team 2 | T+1:00 | `PENDING` |
-| Bedtime mode visual spec | Team 1 | T+1:30 | `PENDING` |
-| App icon + splash (PNG exports) | Team 1 | T+3:00 | `PENDING` |
-| Figma prototype link | Demo | T+4:00 | `PENDING` |
+| Story cover template + dimensions | Team 2 | T+1:00 | `DONE — design/story-cover-template.md` |
+| Bedtime mode visual spec | Team 1 | T+1:30 | `DONE — design/bedtime-mode-spec.md` |
+| App icon + splash (PNG exports) | Team 1 | T+3:00 | `DONE — app/assets/* + design/asset-manifest.md` |
+| Figma prototype link | Demo | T+4:00 | `DONE — design/prototype/index.html` |
 
 ---
 
@@ -40,8 +40,8 @@
 
 | Need | From | Status |
 |------|------|--------|
-| Working name confirmed | Whole group | `PROPOSED — Nitean; use unless group objects` |
-| Expo screen dimensions (for icon spec) | Team 1 | `WAITING` |
+| Working name confirmed | Whole group | `DONE — Nitean locked in INTEGRATION.md` |
+| Expo screen dimensions (for icon spec) | Team 1 | `RESOLVED — used Expo defaults from app/app.json on Team 1 branch` |
 
 ---
 
@@ -73,3 +73,15 @@
 - Resolved BLK-002 because working name and color tokens are now posted.
 
 **Next Team 4 work:** story cover template dimensions/spec for Team 2, then bedtime mode visual spec for Team 1.
+
+### 2026-06-24 14:19 (+07)
+
+- Re-read `team-progress/README.md`, `team-progress/team-4-design.md`, and `team-progress/INTEGRATION.md`; fetched latest `origin/main` and merged current coordination state.
+- Published bedtime mode visual spec at `design/bedtime-mode-spec.md` for Team 1, including token mapping, motion rules, lock modal behavior, accessibility, and demo acceptance.
+- Published story cover template contract at `design/story-cover-template.md`; exported `design/exports/story-cover-template.png` at 1200 x 900.
+- Exported Expo-ready app assets into `app/assets/`: `icon.png`, `android-icon-background.png`, `android-icon-foreground.png`, `android-icon-monochrome.png`, `splash-icon.png`, and `favicon.png`.
+- Added design export manifest at `design/asset-manifest.md` and generated reference assets in `design/exports/`.
+- Added clickable HTML prototype at `design/prototype/index.html` as the demo backup artifact in place of a hosted Figma link.
+- Updated `INTEGRATION.md`, `README.md`, and `BLOCKERS.md` so other teams know Team 4 deliverables are ready.
+
+**Team 4 status:** all promised Build'o'thon design deliverables are complete. Remaining changes should be integration support only.

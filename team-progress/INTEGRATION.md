@@ -120,24 +120,11 @@ create table profiles (
 
 ## Color Tokens (from Team 4)
 
-**Status:** `FINAL — Team 4 posted; Team 1 should copy from design/color-tokens.ts`
+**Status:** `LIVE — final tokens posted by Team 4 (design/color-tokens.ts)`
 
-Team 1 has shipped working placeholder tokens matching the intended palette:
-
-```ts
-// Daytime
-background: '#FDF6E3', surface: '#FFFFFF', primary: '#C68B2A',
-text: '#2C1A0E', textMuted: '#7A5C3A', border: '#E8D5B0'
-
-// Bedtime
-background: '#1A0F00', surface: '#2A1A00', overlay: 'rgba(180,100,0,0.35)',
-primary: '#C68B2A', text: '#F5D49A', textMuted: '#A07840'
-```
-
-**Team 4 final direction:** keep Team 1's warm amber foundation, but add teal and lacquer accents so the app feels culturally grounded and premium rather than one-note sepia.
+Full token file at `design/color-tokens.ts`. **Team 1:** copy into `app/constants/colors.ts`.
 
 ```ts
-// Team 4 final tokens — source of truth also exported at design/color-tokens.ts
 export const colorTokens = {
   day: {
     background: '#FFF8EA',
@@ -171,18 +158,107 @@ export const colorTokens = {
 } as const;
 ```
 
-*Posted by:* Team 4  
+*Posted by:* Team 4
 *Posted at:* 2026-06-24 12:55 (+07)
+
+---
+
+## Team 4 Design Assets
+
+**Status:** `LIVE — posted by Team 4, 2026-06-24 14:19 (+07)`
+
+Expo-ready assets:
+
+- `app/assets/icon.png` — 1024 x 1024 app icon
+- `app/assets/android-icon-background.png` — 1024 x 1024 adaptive icon background
+- `app/assets/android-icon-foreground.png` — 1024 x 1024 adaptive icon foreground
+- `app/assets/android-icon-monochrome.png` — 1024 x 1024 Android monochrome icon
+- `app/assets/splash-icon.png` — 1024 x 1024 splash icon
+- `app/assets/favicon.png` — 48 x 48 web favicon
+
+Design reference exports:
+
+- `design/exports/nitean-icon-1024.png`
+- `design/exports/nitean-splash-1242x2436.png`
+- `design/exports/story-cover-template.png`
+- `design/asset-manifest.md`
+
+Team 1 config guidance:
+
+```json
+{
+  "expo": {
+    "name": "Nitean",
+    "slug": "nitean",
+    "icon": "./assets/icon.png",
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#100B08",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
+```
+
+---
+
+## Bedtime Mode Visual Contract
+
+**Status:** `LIVE — posted by Team 4, 2026-06-24 14:19 (+07)`
+
+Full spec: `design/bedtime-mode-spec.md`
+
+Implementation summary:
+
+- Apply `bedtime.background` to the reader background and `bedtime.surface` to page/text surfaces.
+- Apply `bedtime.overlay` as the warm reader tint; keep story text at full opacity above the overlay.
+- Reduce page motion to 120-160 ms and disable decorative animation while bedtime mode is active.
+- Keep audio controls visible; do not add extra toggle sounds.
+- Exit uses the existing parental lock flow with 44 x 44 px minimum target and PIN modal copy from the spec.
+- Demo acceptance: bedtime toggle visibly warms/darkens the reader, preserves trilingual text legibility, keeps audio controls reachable, and exits after any four PIN digits.
+
+---
+
+## Story Cover Template
+
+**Status:** `LIVE — posted by Team 4, 2026-06-24 14:19 (+07)`
+
+Full spec: `design/story-cover-template.md`
+
+- Supabase cover export: 1200 x 900 px PNG.
+- App crop: 4:3 center crop.
+- Keep title-critical story detail inside the center 900 x 620 px.
+- Leave the lower 18% free of essential faces/action for app badges.
+- Do not bake localized title text into the cover image.
+
+---
+
+## Demo Prototype
+
+**Status:** `LIVE — HTML prototype posted by Team 4`
+
+Prototype path: `design/prototype/index.html`
+
+This is the demo backup artifact replacing a hosted Figma link for this repo session. It shows the Nitean home/story-reader flow, language selector, story card, and bedtime toggle state.
 
 ---
 
 ## Working Name
 
-**Status:** `WORKING NAME LOCKED — Team 4 recommendation`
+**Status:** `LOCKED — Team 4 recommendation, posted 2026-06-24`
 
 Working name: **Nitean**  
 Tagline KM: **រឿងខ្មែរ បីភាសា សម្រាប់ពេលគេង**  
 Tagline EN: **Khmer stories in three languages, made for bedtime.**  
 Tagline FR: **Des histoires khmères en trois langues, pensées pour le coucher.**
 
-**Naming note:** The whitepaper recommends moving away from the generic "Trilingual Tales" brand. "Nitean" is short, Khmer-rooted, pronounceable in EN/FR contexts, and broad enough for a future audio device.
+**Naming note:** "Nitean" is Khmer-rooted, pronounceable in EN/FR contexts, and broad enough for a future audio device. "Trilingual Tales" remains the descriptive subtitle / value prop.
+
+*Posted by:* Team 4
+*Posted at:* 2026-06-24 12:55 (+07)

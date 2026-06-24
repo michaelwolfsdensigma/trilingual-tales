@@ -52,10 +52,10 @@ Example: `progress(team-3): Supabase credentials posted to INTEGRATION.md`
 
 | Team | Status | Current Task | Blocked? |
 |------|--------|-------------|---------|
-| Team 1 — App | `READY FOR INTEGRATION` | Swap mock data for live Supabase queries | Team 3 creds ✅ live on `main` — pull & wire |
-| Team 2 — Content | `NOT STARTED` | Story texts + translations can begin now | Team 3 buckets ✅ live — uploads unblocked |
-| Team 3 — Backend | `DONE` | Backend live: schema, RLS, storage, auth | — |
-| Team 4 — Design | `IN PROGRESS` | Cover template dimensions/spec, then bedtime mode visual spec | — |
+| Team 1 — App | `IN PROGRESS` | Apply Team 4 color tokens; real content live in app | — |
+| Team 2 — Content | `DONE` | 3 stories, 22 pages, 69 files in Storage, seed SQL run | — |
+| Team 3 — Backend | `DONE` | Integration support only | — |
+| Team 4 — Design | `DONE` | Design assets/specs posted; integration support only | — |
 
 **Statuses:** `NOT STARTED` · `IN PROGRESS` · `BLOCKED` · `READY FOR INTEGRATION` · `DONE`
 
@@ -63,10 +63,14 @@ Example: `progress(team-3): Supabase credentials posted to INTEGRATION.md`
 
 ## Coordinator Note — *updated by Arden*
 
-**Team 3: DONE.** Schema, RLS, auth, storage buckets — all live. Credentials in INTEGRATION.md. BLK-001 resolved. Team 3 is now in integration-support mode. One minor note: the deliverables table in `team-3-backend.md` still shows `PENDING` for all rows — Team 3 should do a quick pass to mark those `DONE` to keep the board accurate.
+**ALL BLOCKERS RESOLVED.** BLK-001, BLK-002, BLK-003 all closed. The app has a live backend, real content, and a name.
 
-**Team 1: next action is integration.** Pull `main`, copy `backend/supabase-client.ts` into `app/lib/`, create `app/.env` with `EXPO_PUBLIC_SUPABASE_URL` and `EXPO_PUBLIC_SUPABASE_ANON_KEY` (values in INTEGRATION.md), then swap `app/hooks/useStories.ts` and `app/hooks/useStory.ts` to query Supabase instead of `mockData.ts`. Team 3 is on call for any RLS issues.
+**Team 2: DONE — excellent work.** 3 trilingual folk tales, 22 pages, 44 TTS audio files (EN + FR), 25 illustrations — all in Supabase Storage. Seed SQL run, 3 stories live in the DB. IP log clean (all public domain). ⚠️ One outstanding flag: Story 2 Khmer text is AI-generated and needs native speaker review before KM audio is recorded. Khmer audio across all 3 stories (22 files) is the single remaining content gap — not a demo blocker but noted.
 
-**Team 2: fully unblocked.** Buckets `audio` and `illustrations` are live and public. Write story texts and translations first (no network needed), then upload assets. Seed via Supabase SQL Editor (bypasses RLS, which is the right approach for seeding). Team 1's `mockData.ts` has 3 rough folk tales with real Khmer text — use those as a starting point or replace them. Real Supabase UUIDs will differ from the `mock-001` IDs so seed fresh rows.
+**Team 3: DONE.** Schema, RLS, auth, storage, seed template, integration support — everything delivered. Team 3 also took on coordination cleanup (resolving BLK-003, updating Team 2's progress file). Strong team contribution.
 
-**Team 4: nothing blocking you.** Working name and color tokens are the two highest-value outputs right now. Team 1's placeholder palette is live and wearable — confirm or replace it in INTEGRATION.md. BLK-002 stays open until color tokens and a name are posted.
+**Team 1: real content is in the app.** Supabase hooks are live. Remaining: pull `design/color-tokens.ts` and apply to `app/constants/colors.ts`; post Expo icon dimensions to `team-4-design.md`. Khmer font on a real device is still unverified — worth testing before demo if possible.
+
+**Team 4: DONE.** Name, tokens, bedtime mode spec, story cover template, Expo app icon/splash assets, and demo prototype are posted. Team 1 can pull `app/assets/*`, `design/bedtime-mode-spec.md`, and `design/asset-manifest.md`.
+
+**Demo readiness: ~85%.** The app works end-to-end with real content and Team 4 polish assets/specs are ready. Remaining gap: Khmer audio/native-speaker review and Team 1 final integration pass.

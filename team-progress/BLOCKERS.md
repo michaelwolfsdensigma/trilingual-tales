@@ -38,7 +38,29 @@ Format:
 - **Blocking:** Team 2 — story cover template dimensions not confirmed
 - **Waiting on:** Team 4 — post final color tokens to INTEGRATION.md; confirm or replace Team 1's placeholders
 - **Raised at:** post-kickoff audit
-- **Resolved at:** 2026-06-24 12:55 (+07)
-- **Resolution:** Team 4 posted working name **Nitean**, KM/EN/FR tagline, and final day/bedtime color tokens to `INTEGRATION.md`. Token export added at `design/color-tokens.ts`. Team 1 can now update app color constants. Team 2 is still waiting on cover template dimensions, tracked in Team 4 deliverables rather than this blocker.
+- **Resolved at:** 2026-06-24 ~12:55 (+07)
+- **Resolution:** Team 4 posted working name **Nitean** + trilingual tagline to INTEGRATION.md. Final color tokens in `design/color-tokens.ts` — daytime + bedtime palettes, teal secondary, lacquer accent. Team 1 to pull and apply to `app/constants/colors.ts`.
 
-> **Team 4:** Nothing blocks you from starting. Working name and color tokens are the two most useful things right now.
+---
+
+## [RESOLVED] BLK-003 — Audio files and illustrations not yet uploaded to Supabase Storage
+
+- **Raised by:** Coordinator (Arden) / Team 3 (integration support)
+- **Blocking:** Team 2 — cannot run seed SQL until files are in Storage (URLs will 404)
+- **Blocking:** Team 1 — app has no real content to display until seed SQL is run
+- **Waiting on:** Team 2 — upload audio + illustrations to Storage buckets, run seed SQL
+- **Raised at:** post-Team-2-content audit
+- **Resolved at:** 2026-06-24 14:08 (+07)
+- **Resolution:** All 69 files uploaded successfully — 44 MP3s to `audio` bucket, 25 PNGs to `illustrations` bucket. Seed SQL run in Supabase SQL Editor — 3 stories and 22 pages now live in the database. Team 1 app has real content to display. KM audio pending native speaker session (not a blocker for demo).
+
+---
+
+## [RESOLVED] BLK-004 — Team 4 demo polish assets not yet posted
+
+- **Raised by:** Team 4
+- **Blocking:** Team 1 — final icon/splash integration and bedtime visual polish
+- **Blocking:** Demo — prototype backup / final visual references
+- **Waiting on:** Team 4 — bedtime spec, app icon, splash, cover template, demo prototype
+- **Raised at:** 2026-06-24 14:19 (+07)
+- **Resolved at:** 2026-06-24 14:19 (+07)
+- **Resolution:** Team 4 posted `design/bedtime-mode-spec.md`, `design/story-cover-template.md`, `design/asset-manifest.md`, `design/prototype/index.html`, Expo assets in `app/assets/`, and PNG references in `design/exports/`. `INTEGRATION.md` now contains the shared asset/spec paths.
