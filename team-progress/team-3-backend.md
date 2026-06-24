@@ -26,11 +26,11 @@
 
 | Deliverable | Needed by | Due | Status |
 |-------------|-----------|-----|--------|
-| Supabase URL + anon key | ALL TEAMS | T+0:15 | `PENDING` |
-| Schema migrations applied | Team 2 (seed SQL) | T+0:30 | `PENDING` |
-| `supabase-client.ts` export | Team 1 (app) | T+0:30 | `PENDING` |
-| Storage bucket names confirmed | Team 2 (uploads) | T+0:30 | `PENDING` |
-| is_premium toggle working in Studio | Demo prep | T+2:00 | `PENDING` |
+| Supabase URL + anon key | ALL TEAMS | T+0:15 | `DONE — posted to INTEGRATION.md` |
+| Schema migrations applied | Team 2 (seed SQL) | T+0:30 | `DONE — 001 + 002 live` |
+| `supabase-client.ts` export | Team 1 (app) | T+0:30 | `DONE — backend/supabase-client.ts` |
+| Storage bucket names confirmed | Team 2 (uploads) | T+0:30 | `DONE — buckets audio + illustrations public` |
+| is_premium toggle working in Studio | Demo prep | T+2:00 | `DONE — flip profiles.is_premium in Table Editor` |
 
 ---
 
@@ -38,8 +38,8 @@
 
 | Need | From | Status |
 |------|------|--------|
-| Seed SQL with story/page data | Team 2 | `WAITING` |
-| Any schema change requests | Team 1 | `WAITING` |
+| Seed SQL with story/page data | Team 2 | `DONE — content/seed_template.sql committed to team/2-content` |
+| Any schema change requests | Team 1 | `NONE — schema ratified, no changes requested` |
 
 ---
 

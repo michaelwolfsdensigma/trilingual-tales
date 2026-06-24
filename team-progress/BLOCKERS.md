@@ -31,14 +31,28 @@ Format:
 
 ---
 
-## [OPEN] BLK-002 — Team 4 color tokens and working name not yet posted
+## [RESOLVED] BLK-002 — Team 4 color tokens and working name not yet posted
 
 - **Raised by:** Coordinator (Arden)
 - **Blocking:** Team 1 — placeholder colors in use; will update `constants/colors.ts` when final tokens arrive
 - **Blocking:** Team 2 — story cover template dimensions not confirmed
 - **Waiting on:** Team 4 — post final color tokens to INTEGRATION.md; confirm or replace Team 1's placeholders
 - **Raised at:** post-kickoff audit
+- **Resolved at:** 2026-06-24 (+07)
+- **Resolution:** Team 4 posted final color tokens to `design/color-tokens.ts` and locked the working name **Nitean** with KM/EN/FR taglines. INTEGRATION.md updated with final tokens and name. Team 1 can now update `app/constants/colors.ts` from `design/color-tokens.ts`.
+
+> **Team 4:** Nothing blocks you from starting. Working name and color tokens are the two most useful things right now.
+
+---
+
+## [OPEN] BLK-003 — Team 2 audio and illustration files not yet uploaded to Supabase Storage
+
+- **Raised by:** Team 3 (integration support)
+- **Blocking:** Team 2 — cannot run seed SQL until files are in Storage (all URLs will 404)
+- **Blocking:** Team 1 — app has no real content to display until seed SQL is run
+- **Waiting on:** Team 2 — run upload script against Supabase Storage buckets `audio` + `illustrations`
+- **Raised at:** 2026-06-24 (+07)
 - **Resolved at:** —
 - **Resolution:** —
 
-> **Team 4:** Nothing blocks you from starting. Working name and color tokens are the two most useful things right now.
+> **Team 2:** Upload script is ready (`upload_to_supabase.command`). Set `SUPABASE_SERVICE_ROLE_KEY` env var and run it. 44 MP3s → `audio` bucket, 25 PNGs → `illustrations` bucket. Then paste `content/seed_template.sql` into Supabase SQL Editor and run.
